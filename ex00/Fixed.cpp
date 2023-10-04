@@ -20,18 +20,18 @@ Fixed::~Fixed( void )
 Fixed&	Fixed::operator=(const Fixed &original)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (original == this)
-		return (this);
+	if (&original == this)
+		return (*this);
 	this->setRawBits(original.getRawBits());
-	return (this);
+	return (*this);
 }
 
-int		getRawBits( void )const
+int		Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called";
+	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_nbr);
 }
-void	setRawBits( int const raw )
+void	Fixed::setRawBits( int const raw )
 {
 	std::cout << "setRawBits member function called" << std::endl;
 	this->_nbr = raw;

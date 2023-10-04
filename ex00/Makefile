@@ -4,10 +4,10 @@ CXX			=	c++
 FLAGS		=	-std=c++98 -Wall -Werror -Wextra -fsanitize=address
 #---PHILO_VAR----------------------------------
 SRC			=	main.cpp \
-				Harl.cpp
+				Fixed.cpp
 OBJS_DIR	=	.OBJS/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
-HEADER		=	HARL.hpp
+HEADER		=	Fixed.hpp
 #---RULES----------------------------------------
 
 all:			$(NAME)
