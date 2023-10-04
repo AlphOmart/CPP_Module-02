@@ -18,7 +18,16 @@ public:
 	Fixed( const float original );
 	~Fixed( void );
 
-	Fixed& operator=(const Fixed& original);
+	Fixed&	operator=(const Fixed& original);
+	bool	operator>(const Fixed& other);
+	bool	operator<(const Fixed& other);
+	bool	operator>=(const Fixed& other);
+	bool	operator==(const Fixed& other);
+	bool	operator!=(const Fixed& other);
+	Fixed	operator+(const Fixed& other);
+	Fixed	operator-(const Fixed& other);
+	Fixed	operator*(const Fixed& other);
+	Fixed	operator/(const Fixed& other);
 
 	int		getRawBits( void )const;
 	void	setRawBits( int const raw );

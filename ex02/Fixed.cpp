@@ -30,11 +30,85 @@ Fixed::~Fixed( void )
 Fixed&	Fixed::operator=(const Fixed &original)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (&original == this)
+	if (this == &original)
 		return (*this);
 	this->setRawBits(original.getRawBits());
 	return (*this);
 }
+
+bool	Fixed::operator>(const Fixed &other) const
+{
+	if (this->_nbr <= &other._nbr)
+		return (false);
+	return (true);
+}
+
+bool	Fixed::operator<(const Fixed& other) const
+{
+	if (&other._nbr <= this->_nbr)
+		return (false);
+	return (true);
+}
+
+bool	Fixed::operator>=(const Fixed& other) const
+{
+	if (this->_nbr < &other._nbr)
+		return (false);
+	return (true);
+}
+
+bool	Fixed::operator<=(const Fixed& other) const
+{
+	if (&other._nbr < this->_nbr)
+		return (false);
+	return (true);
+}
+
+bool	Fixed::operator==(const Fixed& other) const
+{
+	if (this->_nbr == &other._nbr)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator!=(const Fixed& other) const
+{
+	if (this->_nbr != &other._nbr)
+		return (true);
+	return (false);
+}
+
+Fixed	Fixed::operator+(const Fixed& other) const
+{
+	return (Fixed(this->toFloat() + other.toFloat()));
+}
+
+Fixed	Fixed::operator-(const Fixed& other) const
+{
+	return (Fixed(this->toFloat() - other.toFloat()));
+}
+
+Fixed	Fixed::operator*(const Fixed& other) const
+{
+	return (Fixed(this->toFloat() * other.toFloat()));
+}
+
+Fixed	Fixed::operator/(const Fixed& other) const
+{
+	return (Fixed(this->toFloat() / other.toFloat()));
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 int		Fixed::getRawBits( void ) const
 {
@@ -46,7 +120,8 @@ void	Fixed::setRawBits( int const raw )
 	this->_nbr = raw;
 }
 
-float	Fixed::toFloat(void) const {
+float	Fixed::toFloat(void) const
+{
 	return (float)this->_nbr/ (1 << this->_fractional_bits);
 }
 
