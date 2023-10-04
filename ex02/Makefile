@@ -1,5 +1,5 @@
 #---COMMON_VAR-----------------------------------
-NAME		=	first_step
+NAME		=	Now_We_Can_Talk
 CXX			=	c++
 FLAGS		=	-std=c++98 -Wall -Werror -Wextra -fsanitize=address
 #---PHILO_VAR----------------------------------
@@ -13,9 +13,9 @@ HEADER		=	Fixed.hpp
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				@echo "\033[0;33m\nCOMPILING first_step ...\n"
+				@echo "\033[0;33m\nCOMPILING Now_We_Can_Talk ...\n"
 				@$(CXX) $(FLAGS) $(OBJS) -o $@
-				@echo "\033[1;32m./first_step created\n"
+				@echo "\033[1;32m./Now_We_Can_Talk created\n"
 
 $(OBJS_DIR)%.o:	%.cpp | dir
 				@$(CXX) $(FLAGS) -c $< -o $@
@@ -26,12 +26,12 @@ $(OBJS_DIR):
 				@mkdir -p $(OBJS_DIR)
 
 clean:
-				@echo "\033[0;31mDeleting first_step object...\n"
+				@echo "\033[0;31mDeleting Now_We_Can_Talk object...\n"
 				@$(RM) -rf $(OBJS_DIR)
 				@echo "\033[1;32mDone\n"
 
 fclean:			clean
-				@echo "\033[0;31mDeleting first_step executable..."
+				@echo "\033[0;31mDeleting Now_We_Can_Talk executable..."
 				@rm -rf $(NAME)
 				@echo "\033[1;32mDone\n"
 
