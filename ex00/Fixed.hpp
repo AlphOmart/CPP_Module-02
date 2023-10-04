@@ -1,4 +1,4 @@
-
+#include <iostream>
 
 class Fixed
 {
@@ -9,10 +9,10 @@ private:
 public:
 	Fixed();
 	Fixed(Fixed& original);
+	~Fixed();
 
 	Fixed& operator=(const Fixed& original);
 
-	~Fixed();
 	void	getRawBits( void )const;
 	void	setRawBits( int const raw );
 
