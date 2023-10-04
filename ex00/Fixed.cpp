@@ -26,3 +26,13 @@ Fixed&	Fixed::operator=(const Fixed &original)
 	return (this);
 }
 
+int		getRawBits( void )const
+{
+	std::cout << "getRawBits member function called";
+	return (this->_nbr);
+}
+void	setRawBits( int const raw )
+{
+	std::cout << "setRawBits member function called" << std::endl;
+	this->_nbr = raw;
+}
