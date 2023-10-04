@@ -104,6 +104,14 @@ Fixed&	Fixed::operator--( void )
 	return (*this);
 }
 
+Fixed	Fixed::operator--( int )
+{
+	Fixed	old(*this);
+
+	this->operator--();
+	return (old);
+}
+
 Fixed&	Fixed::operator++( void )
 {
 	this->_nbr += 1;
@@ -117,13 +125,6 @@ Fixed	Fixed::operator++( int )
 	this->operator++();
 	return (old);
 }
-
-
-
-
-
-
-
 
 int		Fixed::getRawBits( void ) const
 {
