@@ -1,19 +1,17 @@
-#include "Fixed.hpp"
+#include "Point.hpp"
 
 int main( void )
 {
-	Fixed	a;
-	Fixed const	b( Fixed( 5.05f ) * Fixed( 2 ) );
+	Point	a;
+	Point const	b (2.09, 0.423);
+	Point	c(b);
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-
-	std::cout << b << std::endl;
-
-	std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << a.getX() << std::endl;
+	std::cout << a.getY() << std::endl;
+	std::cout << b.getX() << std::endl;
+	std::cout << b.getY() << std::endl;
+	std::cout << c.getX() << std::endl;
+	std::cout << c.getY() << std::endl;
 
 	return 0;
 }
