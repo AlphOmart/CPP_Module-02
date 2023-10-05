@@ -5,7 +5,7 @@ Fixed::Fixed( void )
 	_nbr = 0;
 }
 
-Fixed::Fixed( Fixed& original )
+Fixed::Fixed( const Fixed& original )
 {
 	this->operator=(original);
 }
@@ -17,7 +17,7 @@ Fixed::Fixed( const int nbr )
 
 Fixed::Fixed(const float nb)
 {
-		_nbr(roundf(nb * (1 << this->_fractional_bits)))
+		_nbr = roundf(nb * (1 << this->_fractional_bits));
 }
 Fixed::~Fixed( void )
 {
@@ -33,42 +33,42 @@ Fixed&	Fixed::operator=(const Fixed &original)
 
 bool	Fixed::operator>(const Fixed &other) const
 {
-	if (this->_nbr <= &other._nbr)
+	if (this->_nbr <= other._nbr)
 		return (false);
 	return (true);
 }
 
 bool	Fixed::operator<(const Fixed& other) const
 {
-	if (&other._nbr <= this->_nbr)
+	if (other._nbr <= this->_nbr)
 		return (false);
 	return (true);
 }
 
 bool	Fixed::operator>=(const Fixed& other) const
 {
-	if (this->_nbr < &other._nbr)
+	if (this->_nbr < other._nbr)
 		return (false);
 	return (true);
 }
 
 bool	Fixed::operator<=(const Fixed& other) const
 {
-	if (&other._nbr < this->_nbr)
+	if (other._nbr < this->_nbr)
 		return (false);
 	return (true);
 }
 
 bool	Fixed::operator==(const Fixed& other) const
 {
-	if (this->_nbr == &other._nbr)
+	if (this->_nbr == other._nbr)
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator!=(const Fixed& other) const
 {
-	if (this->_nbr != &other._nbr)
+	if (this->_nbr != other._nbr)
 		return (true);
 	return (false);
 }
@@ -141,28 +141,28 @@ int		Fixed::toInt( void ) const
 	return (this->_nbr >> this->_fractional_bits);
 }
 
-static Fixed	&Fixed::min(Fixed& a, Fixed& b)
+Fixed&	Fixed::min(Fixed& a, Fixed& b)
 {
 	if (a.operator<=(b))
 		return (a);
 	return (b);
 }
 
-static Fixed	&Fixed::min(const Fixed& a, const Fixed& b)
+const Fixed&	Fixed::min(const Fixed& a, const Fixed& b)
 {
 	if (a.operator<=(b))
 		return (a);
 	return (b);
 }
 
-static Fixed&	Fixed::max(Fixed& a, Fixed& b)
+Fixed&	Fixed::max(Fixed& a, Fixed& b)
 {
 	if (a.operator<=(b))
 		return (b);
 	return (a);
 }
 
-static Fixed&	Fixed::max(const Fixed& a, const Fixed& b)
+const Fixed&	Fixed::max(const Fixed& a, const Fixed& b)
 {
 	if (a.operator<=(b))
 		return (b);
