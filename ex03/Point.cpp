@@ -12,6 +12,12 @@ Point	Point::operator=(const Point& original)
 	return (original);
 }
 
+Point	Point::operator-(const Point& other)
+{
+	Point tmp(this->_x.toFloat() - other._x.toFloat(), this->_y.toFloat() -  other._y.toFloat());
+	return (tmp);
+}
+
 const Fixed& Point::getX() const
 {
 	return _x;
