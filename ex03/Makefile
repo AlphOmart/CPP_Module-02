@@ -5,7 +5,8 @@ FLAGS		=	-std=c++98 -Wall -Werror -Wextra -fsanitize=address
 #---PHILO_VAR----------------------------------
 SRC			=	main.cpp \
 				Fixed.cpp \
-				Point.cpp
+				Point.cpp \
+				bsp.cpp
 OBJS_DIR	=	.OBJS/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.cpp=.o))
 HEADER		=	Fixed.hpp \

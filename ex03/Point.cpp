@@ -5,14 +5,14 @@ Point::~Point( void )
 
 }
 
-Point	Point::operator=(const Point& original)
+Point	Point::operator=(const Point& original) const
 {
 	if (this == &original)
 		return(*this);
 	return (original);
 }
 
-Point	Point::operator-(const Point& other)
+Point	Point::operator-(const Point& other) const
 {
 	Point tmp(this->_x.toFloat() - other._x.toFloat(), this->_y.toFloat() -  other._y.toFloat());
 	return (tmp);

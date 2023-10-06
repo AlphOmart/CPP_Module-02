@@ -13,8 +13,8 @@ public:
 
 	~Point();
 
-	Point			operator=(const Point& original);
-	Point			operator-(const Point& original);
+	Point			operator=(const Point& original)const ;
+	Point			operator-(const Point& original)const ;
 	const Fixed&	getX( void ) const;
 	const Fixed&	getY( void ) const;
 };
