@@ -1,7 +1,7 @@
 #---COMMON_VAR-----------------------------------
 NAME		=	first_step
 CXX			=	c++
-FLAGS		=	-std=c++98 -Wall -Werror -Wextra -fsanitize=address
+FLAGS		=	-std=c++98 -Wall -Werror -Wextra
 #---PHILO_VAR----------------------------------
 SRC			=	main.cpp \
 				Fixed.cpp
@@ -12,7 +12,7 @@ HEADER		=	Fixed.hpp
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS)
+$(NAME):		$(OBJS) $(HEADER)
 				@echo "\033[0;33m\nCOMPILING first_step ...\n"
 				@$(CXX) $(FLAGS) $(OBJS) -o $@
 				@echo "\033[1;32m./first_step created\n"
