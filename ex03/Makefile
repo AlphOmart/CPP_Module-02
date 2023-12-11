@@ -1,7 +1,7 @@
 #---COMMON_VAR-----------------------------------
 NAME		=	BSP
 CXX			=	c++
-FLAGS		=	-std=c++98 -Wall -Werror -Wextra -fsanitize=address
+FLAGS		=	-std=c++98 -Wall -Werror -Wextra
 #---PHILO_VAR----------------------------------
 SRC			=	main.cpp \
 				Fixed.cpp \
